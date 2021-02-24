@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style.css">
+    <title>Main Page</title>
+</head>
+<body>
+    <h1>Welcome to Oiishidle</h1>
+    <a href = '/oiishidle/new'><input type= 'button' value = "ADD NEW ITEMS"></a>
+    <div class = "all food">
+        <h2>Mains</h2>
+    <div class = "mains">
+        <div class = "mainsName">
+            <% for(i =0; i < food.length; i++) { %>
+                <p><%= food[i].name %></p>
+            <% } %> 
+        </div>
+    <div class = "mainsPhotos">
+        <% for(i =0; i < food.length; i++) { %>
+            <img src = "<%= food[i].img %>" ></img>
+        <% } %> 
+    </div>
+    <div class = "btns">
+        <% for(i =0; i < food.length; i++) { %>
+            <a href="/oiishidle/<%= i %>"><input type = 'button' value = "Details"></a>
+            <a href="/oiishidle/<%=i %>/edit"><input type = 'button' value = "Edit"></a>
+            <!--  ADD DELETE FORM HERE-->
+                <form action="/oiishidle/<%= i %>?_method=DELETE" method="POST">
+                    <input type="submit" value="DELETE"/>
+				</form>
+        <% } %> 
+    </div>
+    </div>
+    <h2>Drinks</h2>
+    <div class = "drinks">
+        <div class = "drinksName">
+            <% for(i =0; i < drinks.length; i++) { %>
+                <p><%= drinks[i].name %></p>
+            <% } %> 
+        </div>
+        <div class = "drinksPhotos">
+    <% for(i =0; i < drinks.length; i++) { %>
+        <a href="/drink/<%= i %>"><img src = "<%= drinks[i].img %>" ></img></a>
+    <% } %> 
+        </div>
+        <div class = "btns">
+            <% for(i =0; i < drinks.length; i++) { %>
+                <a href="/drink/<%= i %>"><input type = 'button' value = "Details"></a>
+                <a href="/oiishidle/<%= i %>"><input type = 'button' value = "Edit"></a>
+                <!--  ADD DELETE FORM HERE-->
+                <form action="/drink/<%= i %>?_method=DELETE" method="POST">
+                    <input type="submit" value="DELETE"/>
+				</form>
+            <% } %> 
+        </div>
+    </div>
+    <h2>Desserts</h2>
+    <div class = "desserts">
+        <div class = "dessertsName">
+        <% for(i =0; i < desserts.length; i++) { %>
+            <p><%= desserts[i].name %></p>
+        <% } %> 
+        </div>
+        <div class = "dessertsPhotos">
+        <% for(i =0; i < desserts.length; i++) { %>
+            <a href="/dessert/<%= i %>"><img src = "<%= desserts[i].img %>" ></img></a>
+        <% } %> 
+    </div>
+    <div class = "btns">
+        <% for(i =0; i < desserts.length; i++) { %>
+            <a href="/dessert/<%= i %>"><input type = 'button' value = "Details"></a>
+            <a href="/oiishidle/<%= i %>"><input type = 'button' value = "Edit"></a>
+            <!--  ADD DELETE FORM HERE-->
+            <form action="/dessert/<%= i %>?_method=DELETE" method="POST">
+                <input type="submit" value="DELETE"/>
+            </form>
+        <% } %> 
+    </div>
+    <a href = '/oiishidle/'><input type= 'button' value = "Home"></a>
+</body>
+</html>

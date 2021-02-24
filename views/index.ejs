@@ -1,35 +1,62 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/style.css">
-    <title>Main Page</title>
-</head>
-<body>
-    <h1>Welcome to Oiishidle</h1>
-    <h2>Mains</h2>
-    <div class = "mains">
-    <% for(i =0; i < mains.length; i++) { %>
-        <p><%= mains[i].name %></p>
-        <a href="/oiishidle/<%= i %>"><img src = "<%= mains[i].img %>" ></img></a>
-    <% } %> 
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Oiishidle</title>
+    <!-- FONTS -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,700" rel="stylesheet">
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body>
+    <!-- ====== TOP HEADER BAR ====== -->
+    <div class="header">
+      <!-- title -->
+      <div class="header-title">
+        <img src="https://dcassetcdn.com/design_img/375573/141837/141837_3015959_375573_image.jpg" alt="company logo">
+        <h1>Oiishidle Food Ordering</h1>
+      </div>
+      <!-- navigation -->
+      <div class="header-nav">
+        <ul>
+          <li>
+              <a href="/menu">Menu</a>
+          </li>
+          <!-- add your order button to log out here -->
+          <li><a href="/order">ORDER</a></li>
+          <!-- add your link to create a user here -->
+          <% if (!currentUser) {%>
+          <li>
+            <a href="/users/new">Sign Up</a></h2>
+          </li>
+          <!-- add your link to the log in page here -->
+          <li>
+            <a href="/sessions/new">Log In</a>
+          </li>
+          <%} else {%>
+          
+          <li>
+            <%=currentUser.username%>
+          </li>
+          <!-- add your form button to log out here -->
+          <li>
+            <form action="/sessions?_method=DELETE" method="POST">
+              <input type="submit" value="SIGN OUT">
+            </form>
+          </li>
+          <%}%>
+        </ul>
+      </div>
     </div>
-    <h2>Drinks</h2>
-    <div class = "drinks">
-    <% for(i =0; i < drinks.length; i++) { %>
-        <p><%= drinks[i].name %></p>
-        <a href="/drink/<%= i %>"><img src = "<%= drinks[i].img %>" ></img></a>
-    <% } %> 
+    <!-- ===== MAIN SPLASH PAGE CONTENT ===== -->
+    <div class="main">
+      <!-- image -->
+      <img src="https://uploads-ssl.webflow.com/5e20f576d0e9d12be5abc763/5e5e85e789d21ded87836dab_junk-food-1.gif" alt="splash image of food"/>
+      <!-- about -->
+      <div class="main-abt">
+        <h1>“Quality. Passion. Pride.”</h1>
+        "People who love to eat are always the best people."
+      </div>
     </div>
-    <h2>Desserts</h2>
-    <div class = "desserts">
-        <% for(i =0; i < desserts.length; i++) { %>
-            <p><%= desserts[i].name %></p>
-            <a href="/dessert/<%= i %>"><img src = "<%= desserts[i].img %>" ></img></a>
-        <% } %> 
-        </div>
-
-    <a href = '/oiishidle/'><input type= 'button' value = "Home"></a>
-</body>
+  </body>
 </html>

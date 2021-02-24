@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Kingsman: The Secret Service</title>
+    <!-- FONTS -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,700" rel="stylesheet">
+    <!-- CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+  </head>
+  <body>
+    <!-- ====== TOP HEADER BAR ====== -->
+    <div class="header">
+      <!-- title -->
+      <div class="header-title">
+        <img src="https://dcassetcdn.com/design_img/375573/141837/141837_3015959_375573_image.jpg" alt="company logo">
+        <div>
+          <h1>Oiishidle</h1>
+        </div>
+      </div>
+      <!-- navigation -->
+      <div class="header-nav">
+        <ul>
+          <!-- Homepage link -->
+          <li><a href="/">HomePage</a></li>
+          <!-- add your form button to log out here -->
+          <li>
+            <a href="/users/new">Sign Up</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <!-- ===== MAIN FITTING ROOM 3 CONTENT ===== -->
+    <div class="main">
+      <!-- messages -->
+      <div class="sign-up-box">
+        <h1>Please Login</h1>
+        <form action="/sessions" method="POST">
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username" required>
+            <label for="password">Password</label>
+            <input type="password" name="password" id="password" required>
+            <input type="submit" value="LOGIN">
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
